@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     rghtSide:{
         width:"100%",
         
+    },
+    footer:{
+        height:"20%"
     }
    
   }));
@@ -58,7 +61,11 @@ const MenuAndViewController = () => {
                         <MenuItem>
                             Dane dzieci
                             <Link to="/children-date"/>
-                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem>
+                                Profil
+                                <Link to="/profile"/>
+                        </MenuItem>
                         </div>
                     ):(
                         <div>
@@ -71,7 +78,7 @@ const MenuAndViewController = () => {
                     </Menu>
                 </SidebarContent>
                 <SidebarFooter>
-                    //footer
+                    
                 </SidebarFooter>
             </ProSidebar>
             </div>
