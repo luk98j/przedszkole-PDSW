@@ -19,11 +19,10 @@ const useStyles = makeStyles((theme) => ({
         height: "100vh"
     },
     leftSide:{
-        width:"40%",
         
     },
     rghtSide:{
-        width:"60%",
+        width:"100%",
         
     }
    
@@ -54,7 +53,7 @@ const MenuAndViewController = () => {
                         </MenuItem>
                         <MenuItem>
                             Wiadomości
-                            <Link to="/news"/>
+                            <Link to="/messages"/>
                         </MenuItem>
                         <MenuItem>
                             Dane dzieci
