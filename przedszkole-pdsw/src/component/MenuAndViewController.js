@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 const MenuAndViewController = () => {
     const classes = useStyles();
     const [currentUser, setCurrentUser] = useState(true);
-
     useEffect(()=>{
 
     })
@@ -69,9 +68,18 @@ const MenuAndViewController = () => {
                         </div>
                     ):(
                         <div>
-                        <MenuItem>
-                            <Link to="/login">Login</Link>
-                        </MenuItem>
+                            <MenuItem>
+                                Konta rodziców
+                                <Link to="/accounts"/>
+                            </MenuItem>
+                            <MenuItem>
+                                Grupy przedszkolne
+                                <Link to="/groups"/>
+                            </MenuItem>
+                            <MenuItem>
+                                Wiadomości
+                                <Link to="/admin-messages"/>
+                            </MenuItem>
                         </div>
                     )}
                         
