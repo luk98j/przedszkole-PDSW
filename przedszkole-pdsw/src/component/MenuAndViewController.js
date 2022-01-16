@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@material-ui/core/styles';
+import logo from "../image/przedszkole_logo.png"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,50 +28,61 @@ const useStyles = makeStyles((theme) => ({
     },
     footer:{
         height:"20%"
+    },
+    menuStyle:{
+        backgroundColor: "rgb(110, 20, 20)"
+    },
+    imageStyle:{
+        width:"100%",
+        height:"100%"
     }
    
   }));
 
 const MenuAndViewController = () => {
     const classes = useStyles();
-    const [currentUser, setCurrentUser] = useState(false);
+    const [currentUser, setCurrentUser] = useState(true);
+    const [teacher, setTeacher] = useState(true);
     useEffect(()=>{
 
     })
 
+    const logOut = () => {
+        setCurrentUser(false);
+    };
+
     return (
     <div className={classes.splitScreen}>
         <div className={classes.leftSide}>
-            <ProSidebar>
-                <SidebarHeader>
-                //logo
+            <ProSidebar >
+                <SidebarHeader className={classes.menuStyle}>
+                <img src={logo} alt="Logo" className={classes.imageStyle}/>
                 </SidebarHeader>
-                <SidebarContent>
+                <SidebarContent className={classes.menuStyle}>
                     <Menu iconShape="square">
                     {currentUser ? (
                         <div>
-                        <MenuItem>
-                            Aktualności
+                        {teacher ? (
+                            <div>
+                            <MenuItem >
+                                Aktualności
                             <Link to="/activities"/>
-                        </MenuItem>
-                        <MenuItem>
-                            Wiadomości
-                            <Link to="/messages"/>
-                        </MenuItem>
-                        <MenuItem>
-                            Dane dzieci
-                            <Link to="/children-date"/>
-                        </MenuItem>
-                        <MenuItem>
-                                Profil
-                                <Link to="/profile"/>
-                        </MenuItem>
-                        </div>
-                    ):(
-                        <div>
+                            </MenuItem>
+                            <MenuItem>
+                                Wiadomości
+                                <Link to="/messages"/>
+                            </MenuItem>
+                            <MenuItem>
+                                Dane dzieci
+                                <Link to="/children-date"/>
+                            </MenuItem>
+                            </div>
+                        ):
+                        (   
+                            <div>
                             <MenuItem>
                                 Konta rodziców
-                                <Link to="/accounts"/>
+                            <Link to="/accounts"/>
                             </MenuItem>
                             <MenuItem>
                                 Grupy przedszkolne
@@ -80,12 +92,29 @@ const MenuAndViewController = () => {
                                 Wiadomości
                                 <Link to="/admin-messages"/>
                             </MenuItem>
+                            </div>
+                        )}
+                        <MenuItem>
+                            Profil
+                        <Link to="/profile"/>
+                        </MenuItem>
+                        <MenuItem>
+                            Wyloguj
+                        <Link to="/logout" onClick={logOut}/>
+                        </MenuItem>
+                        </div>
+                    ):(
+                        <div>
+                        <MenuItem>
+                            Zaloguj się
+                        <Link to="/login"/>
+                        </MenuItem>
                         </div>
                     )}
                         
                     </Menu>
                 </SidebarContent>
-                <SidebarFooter>
+                <SidebarFooter className={classes.menuStyle}>
                     
                 </SidebarFooter>
             </ProSidebar>

@@ -8,12 +8,14 @@ import Profile from "../view/Profile"
 import AdminMessages from "../view/AdminMessages";
 import Accounts from "../view/Accounts"
 import Groups from "../view/Groups"
+import MainPage from "../view/MainPage";
 
 const SwitchAndRoute = () =>{
     return(
         <Switch>
-            <Route exact path="/" component={MenuAndViewController} />
+            <Route exact path={["/",""]} component={MainPage} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/logout" component={MainPage} />
             <Route exact path="/activities" component={Activities} />
             <Route exact path="/messages" component={Messages} />
             <Route exact path="/children-date" component={ChildrenDate} />
