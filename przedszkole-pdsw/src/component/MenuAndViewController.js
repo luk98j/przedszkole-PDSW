@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     leftSide:{
         
     },
-    rghtSide:{
+    rightSide:{
         width:"100%",
         
     },
@@ -90,7 +90,7 @@ const MenuAndViewController = () => {
                 </SidebarFooter>
             </ProSidebar>
             </div>
-            <div className={classes.rghtSide}>
+            <div className={classes.rightSide}>
                 <SwitchAndRoute/>
             </div> 
         </div>

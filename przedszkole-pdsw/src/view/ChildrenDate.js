@@ -7,6 +7,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import InfoIcon from "@mui/icons-material/Info";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { db } from "../db";
 
 const ChildrenDate = () =>{
     const [dense, setDense] = React.useState(false)
@@ -15,7 +16,10 @@ const ChildrenDate = () =>{
     useEffect(()=>{
 
     })
-
+    function getMeals(){
+        let limit = db.meals.count();
+        let mealsForToday = db.meals.get(Math.floor(Math.random()*limit));
+    }
     return(
         <Container fixed>
            <center>

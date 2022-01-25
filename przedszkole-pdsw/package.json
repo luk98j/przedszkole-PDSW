@@ -41,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dexie": "^3.2.0",
+    "dexie-react-hooks": "^1.1.1"
   }
 }
