@@ -13,9 +13,13 @@ const Login = () =>{
 
     function HandleLogin() {
         let checkLogin = document.getElementById("filled-login-input").value;
+        console.log(checkLogin)
         let checkPassword = document.getElementById("filled-password-input").value;
-        const currentUser = db.users.get().where(["username", "password"]).equals([checkLogin, checkPassword])
-        console.log(currentUser.id);
+        console.log(checkPassword)
+        
+        const currentUser = db.users.where(["username+password"]).equals([checkLogin, checkPassword]).toArray();
+    
+        console.log(currentUser);
         if (currentUser.id !== 0) {
             console.log("Zalogowano");
         }

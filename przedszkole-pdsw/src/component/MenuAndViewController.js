@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@material-ui/core/styles';
+import { populate } from "./Populate";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 const MenuAndViewController = () => {
     const classes = useStyles();
     const [currentUser, setCurrentUser] = useState(false);
+    
     useEffect(()=>{
 
     })
