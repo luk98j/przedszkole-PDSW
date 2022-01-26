@@ -7,7 +7,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import InfoIcon from "@mui/icons-material/Info";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { db } from "../db";
+import MealsService from "../services/meals-service"
 
 const ChildrenDate = () =>{
     const [dense, setDense] = React.useState(false)
@@ -16,15 +16,15 @@ const ChildrenDate = () =>{
     useEffect(()=>{
 
     })
-    function getMeals(){
-        let limit = db.meals.count();
-        let mealsForToday = db.meals.get(Math.floor(Math.random()*limit));
+    function prepareMeals() {
+        //let todayMeals = MealsService.randMeals();
+        //console.log(todayMeals);
     }
     return(
         <Container fixed>
            <center>
                <h2>Dane dzieci</h2>
-
+                <button onClick={prepareMeals}>losuj posilki</button>
                <Box sx={{ width: '100%', maxWidth: 760, bgcolor: 'background.paper', border: '1px solid black' }}>
                    <List>
                            <ListItem>

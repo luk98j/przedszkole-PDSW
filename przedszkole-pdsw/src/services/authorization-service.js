@@ -1,18 +1,23 @@
 import { db } from "../db";
 
-const login = (userName, password, role) => {
-    const users = db.users.get({ username: "Rodzic" });
-    console.log(users);
+class AuthService {
+    async login(userName, password) {
+        return db.users.where(["username+password"]).equals([userName, password]).first().then((user) => {
+            return {id: user.id, username: user.username, role: user.role};
+        });
+    };
 
-    return users;
-};
+    async changePass(login, oldPassword, newPassword, newPassword2) {
+        if (newPassword === newPassword2) {
+            let checkOldPassword = db.users.where(["username", "password"]).equals([login, oldPassword]);
+            if (checkOldPassword != null) {
+                db.users.where(["username", "password"]).equals([login, oldPassword]).modify(user => {
+                    user.password = newPassword
+                    console.log("Haslo zmienione");
+                });
+            }
+        }
+    }
+}
+export default new AuthService();
 
-const logout = () => {};
-
-const getCurrentUser = () => {};
-
-export default {
-    login,
-    logout,
-    getCurrentUser
-};

@@ -4,25 +4,20 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { db } from "../db";
-
+import AuthService from "../services/authorization-service"
 
 const Login = () =>{
     useEffect(()=>{
 
     })
 
-    function HandleLogin() {
+    async function HandleLogin() {
         let checkLogin = document.getElementById("filled-login-input").value;
         console.log(checkLogin)
         let checkPassword = document.getElementById("filled-password-input").value;
         console.log(checkPassword)
-        
-        const currentUser = db.users.where(["username+password"]).equals([checkLogin, checkPassword]).toArray();
-    
+        const currentUser = await AuthService.login(checkLogin,checkPassword)
         console.log(currentUser);
-        if (currentUser.id !== 0) {
-            console.log("Zalogowano");
-        }
     }
 
     return(

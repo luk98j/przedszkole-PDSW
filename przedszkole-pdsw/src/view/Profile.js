@@ -3,20 +3,19 @@ import { Container } from "@material-ui/core";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { db } from "../db";
-
+import AuthService from "../services/authorization-service"
 const Profile = key =>{
     useEffect(()=>{
 
     })
 
-    function changePassword(login, oldPassword, newPassword, newPassword2) {
-        if (newPassword===newPassword2) {
-            let checkOldPassword = db.users.where(["username", "password"]).equals([login, oldPassword]);
-            if (checkOldPassword != null) {
-                db.users.where(["username", "password"]).equals([login, oldPassword]).modify(user => {user.password = newPassword});
-            }
-        }
+    function changePassword() {
+        //TODO: przekazywanie prawdziwego loginu/id
+        let login = "Rodzic";
+        let oldPassword = document.getElementById("filled-old-password-input").value;
+        let newPassword = document.getElementById("filled-new-password-input").value;
+        let newPassword2 = document.getElementById("filled-new-password-2-input").value;
+        AuthService.changePass(login, oldPassword, newPassword, newPassword2)
     }
 
     return(
@@ -50,7 +49,7 @@ const Profile = key =>{
                 autoComplete="current-password"
                 variant="filled"
             /><br></br>
-            <Button>Resetuj</Button>
+            <Button onClick={changePassword}>Resetuj</Button>
             </h4>
            </center>
         </Container>
