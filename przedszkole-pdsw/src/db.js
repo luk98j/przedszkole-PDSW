@@ -5,7 +5,8 @@ export const db = new Dexie("Preschool");
 db.version(3).stores({
     users: '++id, username, password, phone, role,[username+password]', // Primary key and indexed props
     children: '++id, username, name, surname',
-    meals: '++id, breakfast, dinner, supper'
+    meals: '++id, breakfast, dinner, supper',
+    news: '++id, title, content'
 });
 db.open().catch(function (e) {
     console.error("Open failed: " + e.stack);

@@ -11,8 +11,12 @@ export async function populate() {
         { username: "Rodzic", name: "Dziecko3", surname: "nazwisko" }
     ]);
     await db.meals.bulkAdd([
+        { breakfast: "naleśnik", dinner: "rosół", supper: "batonik" },
         { breakfast: "owsianka", dinner: "zupa pomidorowa", supper: "jabłko" },
         { breakfast: "kanapka", dinner: "kotlet mielony", supper: "drożdżówka" },
         { breakfast: "kakao", dinner: "spaghetti", supper: "banan" }
+    ]);
+    await db.news.bulkAdd([
+        { title: "News", content: "Lorem ipsum...." },
     ]);
 }
