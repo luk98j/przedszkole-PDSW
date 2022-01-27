@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import { db } from "../db";
 import AuthService from "../services/authorization-service"
 
+
 const Login = () =>{
     useEffect(()=>{
 
@@ -22,27 +23,27 @@ const Login = () =>{
 
     return(
         <div>
-            <Container fixed>
-                <center>
-                    <h2>Zaloguj się</h2>
-                    <TextField
-                        id="filled-login-input"
-                        label="Login"
-                        autoComplete="current-login"
-                        variant="filled"
-                    /><br></br>
-                    <TextField
-                        id="filled-password-input"
-                        label="Password"
-                        type="password"
-                        autoComplete="current-password"
-                        variant="filled"
-                    /><br></br>
-
-                    <Button onClick={HandleLogin}>Zaloguj</Button>
-
-                </center>
-            </Container>
+          <Container fixed>
+           <center>
+               <h2>Zaloguj się</h2>
+            <TextField
+                id="filled-password-input"
+                label="Login"
+                type="password"
+                autoComplete="current-password"
+                variant="filled"
+            /><br></br>
+            <TextField
+                id="filled-password-input"
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                variant="filled"
+            /><br></br>
+           
+            <Button>Zaloguj</Button>
+           </center>
+        </Container>  
         </div>
     )
 }

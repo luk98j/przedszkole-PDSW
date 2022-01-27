@@ -33,7 +33,6 @@ const ModalComponent = (props) =>{
 
     useEffect(()=>{
         if(props.open != null){
-            console.log("XD")
             setOpen(props.open)
         }
     },[props])
