@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@material-ui/core/styles';
+import { populate } from "./Populate";
 import logo from "../image/przedszkole_logo.png"
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     leftSide:{
         
     },
-    rghtSide:{
+    rightSide:{
         width:"100%",
         
     },
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MenuAndViewController = () => {
     const classes = useStyles();
+
     const [currentUser, setCurrentUser] = useState(true);
     const [teacher, setTeacher] = useState(true);
     useEffect(()=>{
@@ -119,7 +121,7 @@ const MenuAndViewController = () => {
                 </SidebarFooter>
             </ProSidebar>
             </div>
-            <div className={classes.rghtSide}>
+            <div className={classes.rightSide}>
                 <SwitchAndRoute/>
             </div> 
         </div>
