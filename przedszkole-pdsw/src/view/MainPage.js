@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Profiler } from "react";
 import logo from "../image/przedszkole_logo.png"
-
+import img from "../image/picture_background.jpg"
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -22,8 +22,8 @@ const MainPage = () =>{
 
             <center>
                 <h1>Witaj na stronie przedszkola</h1>
-                <img src={logo} alt="Logo"/>
-                
+                <img src={logo} alt="Logo"/><br></br>
+                <img src={img} alt="Logo"/>
             </center>
     )
 }

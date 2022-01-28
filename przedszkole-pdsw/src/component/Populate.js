@@ -10,17 +10,17 @@ export async function populate() {
         { username: "KatarzynaKowal", password: "pass379", phone: "253689425", role: "PARENT" }
     ]);
     await db.children.bulkAdd([
-        { username: "AnnaNowak", name: "Sebastian", surname: "Nowak" },
-        { username: "AnnaNowak", name: "Jessica", surname: "Nowak" },
-        { username: "IwonaPolak", name: "Jozef", surname: "Polak" },
-        { username: "AndrzejZdun", name: "Joanna", surname: "Zdun" },
-        { username: "AndrzejZdun", name: "Krystyna", surname: "Zdun" },
-        { username: "AndrzejZdun", name: "Jan", surname: "Zdun" },
-        { username: "AdamKielbasa", name: "Adrian", surname: "Kielbasa" },
-        { username: "AdamKielbasa", name: "Piotr", surname: "Kielbasa" },
-        { username: "AdamKielbasa", name: "Lukasz", surname: "Kielbasa"  },
-        { username: "AdamKielbasa", name: "Natalia", surname: "Kielbasa"  },
-        { username: "KatarzynaKowal", name: "Irena", surname: "Kowal"  }
+        { username: "AnnaNowak", name: "Sebastian", surname: "Nowak", group: "1a"},
+        { username: "AnnaNowak", name: "Jessica", surname: "Nowak", group: "2a"},
+        { username: "IwonaPolak", name: "Jozef", surname: "Polak",group: "2b" },
+        { username: "AndrzejZdun", name: "Joanna", surname: "Zdun",group: "3a"},
+        { username: "AndrzejZdun", name: "Krystyna", surname: "Zdun",group: "3b"},
+        { username: "AndrzejZdun", name: "Jan", surname: "Zdun",group: "1a"},
+        { username: "AdamKielbasa", name: "Adrian", surname: "Kielbasa",group: "1a" },
+        { username: "AdamKielbasa", name: "Piotr", surname: "Kielbasa",group: "2a" },
+        { username: "AdamKielbasa", name: "Lukasz", surname: "Kielbasa",group: "2a"  },
+        { username: "AdamKielbasa", name: "Natalia", surname: "Kielbasa" ,group: "3b" },
+        { username: "KatarzynaKowal", name: "Irena", surname: "Kowal",group: "3a"  }
     ]);
     await db.meals.bulkAdd([
         { breakfast: "naleśnik", dinner: "rosół", supper: "batonik" },

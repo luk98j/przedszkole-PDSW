@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { populate } from "./Populate";
 import logo from "../image/przedszkole_logo.png"
+import AuthService from "../services/authorization-service";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -43,14 +44,26 @@ const useStyles = makeStyles((theme) => ({
 const MenuAndViewController = () => {
     const classes = useStyles();
 
-    const [currentUser, setCurrentUser] = useState(true);
-    const [teacher, setTeacher] = useState(true);
-    useEffect(()=>{
+    const [currentUser, setCurrentUser] = useState(undefined);
+    const [teacher, setTeacher] = useState(undefined);
 
-    })
+    useEffect(()=>{
+        setCurrentUser(AuthService.getCurrentUser())
+        console.log(currentUser)
+        if(currentUser!==undefined){
+            if(currentUser.role=="ADMIN"){
+                setTeacher(true)
+            } else {
+                setTeacher(false)
+            }
+        }
+        
+    },[])
 
     const logOut = () => {
-        setCurrentUser(false);
+        setCurrentUser(undefined);
+        setTeacher(undefined)
+        AuthService.logout();
     };
 
     return (
@@ -64,7 +77,7 @@ const MenuAndViewController = () => {
                     <Menu iconShape="square">
                     {currentUser ? (
                         <div>
-                        {teacher ? (
+                        { currentUser.role !== "ADMIN" ? (
                             <div>
                             <MenuItem >
                                 Aktualności
