@@ -10,5 +10,11 @@ class MealsService {
         })
         return limit;
     };
+
+    async assignMealToChild(childId, mealId) {
+        await db.children.where("id").equals(childId).modify(child => {
+            child.meal = mealId});
+        return "MEALS_CHANGED";
+    }
 }
 export default new MealsService();
