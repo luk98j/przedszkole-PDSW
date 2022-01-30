@@ -5,6 +5,10 @@ class MealsService {
         return await db.meals.toArray();
     };
 
+    async getMeal(id){
+        return await db.meals.where("id").equals(id).toArray()
+    }
+
     async randMeals() {
         let limit = await db.meals.count().then((count)=>{
             let rand = Math.ceil(Math.random() * count)
