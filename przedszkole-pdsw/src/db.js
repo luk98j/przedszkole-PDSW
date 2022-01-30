@@ -4,7 +4,7 @@ import { populate } from "./component/Populate";
 export const db = new Dexie("Preschool");
 db.version(4).stores({
     users: '++id, username, password, phone, role,[username+password]', // Primary key and indexed props
-    children: '++id, username, name, surname, group',
+    children: '++id, username, name, surname, group, meal',
     meals: '++id, breakfast, dinner, supper',
     news: '++id, title, content'
 });
