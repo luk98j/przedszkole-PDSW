@@ -1,6 +1,10 @@
 import {db} from "../db";
 
 class MealsService {
+    async getAllMeals(){
+        return await db.meals.toArray();
+    };
+
     async randMeals() {
         let limit = await db.meals.count().then((count)=>{
             let rand = Math.ceil(Math.random() * count)
