@@ -21,7 +21,7 @@ const SwitchAndRoute = () =>{
             <Route exact path="/children-date" component={ChildrenDate} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/admin-messages" component={AdminMessages}/>
-            {/* <Route exact path="/groups" component={Groups}/> */}
+            <Route exact path="/groups" component={Groups}/> 
             <Route exact path="/accounts" component={Accounts}/>
         </Switch >
     )

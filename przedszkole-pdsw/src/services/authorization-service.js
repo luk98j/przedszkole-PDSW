@@ -44,9 +44,23 @@ class AuthService {
     async getAll(){
         return await db.users.where("role").equals("PARENT").toArray()
     }
+
     async getUserChild(username){
         return await db.children.where("username").equals(username).toArray()
     }
+
+    async getChildrenGroup(groupid){
+        return await db.children.where("group").equals(groupid).toArray()
+    }
+
+    async setChildGroup(id, groupId){
+        db.children.where("id").equals(id).modify(child => {
+            child.group = groupId
+            console.log("Grupa zmieniona");
+            
+        });
+    }
+
 
     setUser(user){
         localStorage.setItem("user", JSON.stringify(user));

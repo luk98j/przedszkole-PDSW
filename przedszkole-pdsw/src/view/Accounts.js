@@ -167,7 +167,7 @@ const Accounts = () =>{
                                         <TableCell>
                                         <TextField
                                             id="filled-password-input"
-                                            label="Telefon"
+                                            label="Grupa"
                                             type="text"
                                             autoComplete="current-password"
                                             onChange={onChangesetChildPhone}
